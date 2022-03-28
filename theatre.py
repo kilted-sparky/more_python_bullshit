@@ -47,7 +47,7 @@ try:
 except:
     print("Number not entered")
 
-intChildren = intGroup - intAdult - intGroup
+intChildren = intGroup - intAdult - intConcession
 
 if intChildren > 0 and intAdult == 0:
     print("Children must be accompanied by an adult.")
@@ -57,7 +57,7 @@ if intChildren > 0 and intConcession == 0:
     exit()
 
 print("")
-print("Total: {0}".format(intGroup))
+print("Total: {0}".format(intGroup, intChildren))
 
 chargeAdult = 0
 if intAdult > 0:
@@ -75,7 +75,7 @@ chargeConcession = 0
 if intConcession > 0:
     chargeConcession = intConcession * costConcession
     strConcession = "%.2f" % chargeConcession
-    print("Concession: \t\t{0}\t£{1}".format(intConcession, strConcession))
+    print("Concession: \t{0}\t£{1}".format(intConcession, strConcession))
 
 # discount, every 10 children = 1 free adult
 intAdultfreebe = freeAdult(intChildren)
