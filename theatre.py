@@ -1,66 +1,86 @@
-# Theatre exercise
+#Theatre Exercise
+costAdult = 10.50
+costChild = 7.30
+costConcession = 8.40
 
-def ten_percent(total):
-    if total > 100:
-       disc = 0.10
+def freeAdult(children):
+    if children >9:
+        # discount adults
+        return int(children /10)
     else:
-        total < 100
-        disc = 0
-    total_discount = total*disc
-    final_price = total-total_discount
-    return final_price
+        return 0
 
-def discount(free_ticket):
-    number_children = 0
-    number_adult = 0
-    while True:
-        if number_children >= 10 <= 19:
-            number_adult = -1
-        elif number_children >= 20 <= 29:
-            number_adult = -2
-        elif number_children >= 30 <= 39:
-            number_adult = -3
-        elif number_children >= 40 <= 49:
-            number_adult = -4
-        elif number_children >= 50 <= 59:
-            number_adult = -5
-        elif number_children >= 60 <= 69:
-            number_adult = -6
-        elif number_children >= 70 <= 79:
-            number_adult = -7
-        elif number_children >= 80 <= 89:
-            number_adult = -8
-        elif number_children >= 90 <= 99:
-            number_adult = -9
-        elif number_children >= 100 <= 109:
-            number_adult = -10
-        else:
-            number_adult ==""
-            break
-def discount(price):
-        age = int(input("Please enter your age: "))
-        con = 8.40
-        if age > 65:
-            price = con
-        elif age < 12:
-            price = child
-        else:
-            price = adult
+def discountAdult(adult):
+    subtotal = adult + costAdult
+    return subtotal
 
-            return price
+def discountTenPercent (adult, children, concession):
+    subtotalAdults = adult + costAdult
+    subtotalChildren = children + costChild
+    subtotalConcession = concession + costConcession
+    Totalsubtotal = subtotalAdults + subtotalChildren +subtotalConcession
+    if Totalsubtotal > 100.00:
+        return Totalsubtotal * 0.1
+    else:
+        return 0.0
+strGroup = input("How many in your group: ")
+try:
+    intGroup = int(strGroup)
+except:
+    print("Number no entered")
 
+strAdult = input("How many adults in your group: ")
+try:
+    intAdult = int(strAdult)
+except:
+    print("Number not entered")
 
+strConcession = input("How many concessions in your group: ")
+try:
+    intConcession = int(strConcession)
+except:
+    print("Number not entered")
 
+intChildren = intGroup - intAdult - intGroup
+if intChildren < 0:
+    print("Children must be accompanied by an adult.")
+    exit()
 
-adult = 10.50
-child = 7.30
-con = 8.40
-number_children = 0
-number_adult = 0
-con_number = 0
-adult_sum = number_adult*adult
-child_sum = number_children*child
-con_sum = con_number*con
-total = adult_sum+child_sum+con_sum
+if intChildren > 0 and intAdult == 0 and intConcession == 0:
+    print("Children must be accompanied by an adult.")
+    exit()
+print("")
+print("==Receipt==")
+chargeAdult = 0
+if intAdult > 0:
+    chargeAdult = intAdult * costAdult
+    strAdult = "5.2f" % chargeAdult
+    print("Adults:\t\t\t{0}\t£{1}".format(intAdult, strAdult))
 
+chargeChild = 0
+if intChildren > 0:
+    chargeChild = intChildren * costChild
+    strchild = "%.2f" % chargeChild
+    print("Children: \t\t{0}\t£{1}".format(intChildren, strchild))
 
+chargeConcession = 0
+if intConcession > 0:
+    chargeConcession = intConcession * costConcession
+    strConcession = "%.2f" % chargeConcession
+    print("Concession: \t\t{0}\t£{1}".format(intConcession, strConcession))
+
+#discount, every 10 children = 1 free adult
+intAdultfreebe = freeAdult(intChildren)
+Adultdiscount = discountAdult(intAdultfreebe)
+if intAdultfreebe > 0:
+    strFreeAdult = "-%.2f" % Adultdiscount
+    print("Free adult disocunt:\t{0}\t£{1}".format(intAdultfreebe, strFreeAdult))
+# 10% discount
+TenPercentDiscount = discountTenPercent(intAdult - intAdultfreebe, intChildren, intConcession)
+if discountTenPercent > 0.00:
+    strTenPerc = "-%.2f" % discountTenPercent
+    print("Multi-buy discount:\t\t£{0}".format(strTenPerc))
+# Final total
+Total = chargeAdult + chargeChild + chargeConcession - discountAdult - discountTenPercent
+strTotal = "5.2f" % Total
+print("Total\t\t\t\t£{0}".format(strTotal))
