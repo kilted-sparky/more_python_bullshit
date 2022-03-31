@@ -1,0 +1,19 @@
+# Diamond exercise
+
+width = eval(input("Please enter the width of the diamond: "))
+
+
+if width <=3:
+    print("Out of permitted range.")
+    exit()
+elif width >=40:
+    print("Out of permitted range.")
+    exit()
+x = 1
+while x < width*2:
+    if x < width:
+        print(" " * (width-x) + "* " * x)
+    else:
+        print(" " * (x-width) + "* " * (2*width-x))
+    x += 1
+exit()
