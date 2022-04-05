@@ -1,0 +1,15 @@
+# Spell checker
+print("Welcome to your spellcheck demonstration")
+print("Can you tell me a structure which humans occupy?")
+def spell_checker():
+    guess = input()
+    if guess == "Buildings":
+        print("Well done, that is the word I was looking for!")
+        exit()
+    elif guess == "buildings":
+        print("Well done, that is the word I was looking for!")
+        exit()
+    else:
+        print("Not quite what I was thinking, try again.")
+    spell_checker()
+spell_checker()
