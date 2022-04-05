@@ -1,0 +1,47 @@
+# Calculator
+
+from menu import Main_menu
+
+def calculator():
+    global func, first, second
+    print("Welcome to your very own calculator!")
+    print("The functions available are: ")
+    print("1. Add")
+    print("2. Subtract")
+    print("3. Multiply")
+    print("4. Divide")
+    print("5. Return to Main Menu")
+
+    def add(x, y):
+        total = x + y
+        print("Total = ", total)
+
+    def minus(x, y):
+        total = x - y
+        print("Total = ", total)
+
+    def division(x, y):
+        total = x/y
+        print("Total = ", total)
+
+    def multiply(x, y):
+        total = x*y
+        print("Total = ", total)
+    print("")
+    try:
+        func = input("Which function would you like to use?")
+        first = (float(input("Please enter your first number: ")))
+        second = (float(input("Please enter your second number: ")))
+        if func == 1:
+            add(first, second)
+        elif func == 2:
+            minus(first, second)
+        elif func == 3:
+            division(first, second)
+        elif func == 4:
+            multiply(first, second)
+        else:
+            Main_menu()
+    except ValueError:
+        print("Please enter another number.")
+calculator()
