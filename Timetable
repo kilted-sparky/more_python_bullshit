@@ -1,0 +1,40 @@
+# Timetable
+
+classes = []
+def main_option():
+    print("Welcome to your timetable menu.")
+    print("1. Add your classes for the day?")
+    print("2. Amend you classes?")
+    print("3. Show what classes you have today?")
+    print("4. Return to Main menu.")
+    strChoice = int(input("What option would you like to choose?"))
+    choice = 0
+    try:
+        choice = int(strChoice)
+    except:
+        print("Please enter 1 -4.")
+        exit()
+    return choice
+
+print(main_option())
+
+store_class = []
+def classChoice():
+    print("Please choose 4 subjects for today starting with your first: ")
+    print(classes)
+    exit_msg = ("Below are your classes for the day")
+    while True:
+        subject = str(input().lower())
+        if str.lower(subject) == "q":
+            print(exit_msg)
+            break       
+        store_class.append(subject)
+    for x in store_class:
+        print("", x)
+
+print(classChoice())
+
+def class_change():
+    print("What class would you like to remove?")
+    print(store_class)
+    choice = str(input("").lower())
