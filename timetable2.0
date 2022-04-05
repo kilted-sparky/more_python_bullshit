@@ -1,0 +1,42 @@
+# Timetable
+def Monday():
+    day = input("")
+    if day == Monday():
+        with open('Monday_Timetable.txt') as f:
+            line = f.read()
+            print(line)
+
+def main_option():
+    print("Welcome to your timetable menu.")
+    print("1. View Timetable")
+    print("2. Amend you classes?")
+    print("3. Show what classes you have today?")
+    print("4. Return to Main menu.")
+    strChoice = int(input("What option would you like to choose?"))
+    if strChoice == 1:
+        print("What day would you like to show")
+        if input() == "Monday":
+            with open('Monday_Timetable.txt') as f:
+                line = f.read()
+                print(line)
+        elif input() == "Tuesday":
+            with open('Tuesday_Timetable.txt') as x:
+                line = x.read()
+                print(line)
+        elif input() == "Wednesday":
+            with open('Wednesday_Timetable.txt') as f:
+                line = f.read()
+                print(line)
+        elif input() == "Thursday":
+            with open('Thursday_Timetable.txt') as f:
+                line = f.read()
+                print(line)
+        elif input() == "Friday":
+            with open('Friday_Timetable.txt') as f:
+                line = f.read()
+                print(line)
+        else:
+            exit()
+    else:
+        exit()
+main_option()
