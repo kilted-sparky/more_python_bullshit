@@ -1,0 +1,30 @@
+# Main menu
+
+def Main_menu():
+        print("=====WELCOME TO THE MAIN MENU=====")
+        choice = input("""
+        1. Calculator
+        2. Spell Checker
+        3. Timetable
+        4. Game - 
+        5. Game - 
+        6.
+        7.
+        6. Help
+        7. Quit
+        
+        What would you like to choose?""")
+
+
+        if choice == 1:
+            from Maths import calculator
+            calculator()
+        elif choice == 2:
+            from spellcheck import spell_checker
+            spell_checker()
+        elif choice == 3:
+            from timetable import main_option
+            main_option()
+            exit()
+Main_menu()
+
