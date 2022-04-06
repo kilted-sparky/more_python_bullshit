@@ -1,40 +1,75 @@
 # Timetable
 
-classes = []
 def main_option():
     print("Welcome to your timetable menu.")
-    print("1. Add your classes for the day?")
-    print("2. Amend you classes?")
-    print("3. Show what classes you have today?")
-    print("4. Return to Main menu.")
+    print("1. View Timetable")
+    print("2. Amend classes (Admin ONLY)")
+    print("3. Return to Main menu.")
     strChoice = int(input("What option would you like to choose?"))
-    choice = 0
-    try:
-        choice = int(strChoice)
-    except:
-        print("Please enter 1 -4.")
-        exit()
-    return choice
-
-print(main_option())
-
-store_class = []
-def classChoice():
-    print("Please choose 4 subjects for today starting with your first: ")
-    print(classes)
-    exit_msg = ("Below are your classes for the day")
-    while True:
-        subject = str(input().lower())
-        if str.lower(subject) == "q":
-            print(exit_msg)
-            break       
-        store_class.append(subject)
-    for x in store_class:
-        print("", x)
-
-print(classChoice())
-
-def class_change():
-    print("What class would you like to remove?")
-    print(store_class)
-    choice = str(input("").lower())
+    if strChoice == 1:
+        print("What day would you like to show")
+        if input() == "Monday":
+            with open('Monday_Timetable.txt') as f:
+                line = f.read()
+            print(line)
+            main_option()
+        elif input() == "Tuesday":
+            with open('Tuesday_Timetable.txt') as x:
+                line1 = x.read()
+            print(line1)
+            main_option()
+        elif input() == "Wednesday":
+            with open('Wednesday_Timetable.txt') as g:
+                line2 = g.read()
+            print(line2)
+            main_option()
+        elif input() == "Thursday":
+            with open('Thursday_Timetable.txt') as d:
+                line3 = d.read()
+            print(line3)
+            main_option()
+        elif input() == "Friday":
+            with open('Friday_Timetable.txt') as r:
+                line4 = r.read()
+            print(line4)
+            main_option()
+        else:
+            main_option()
+    elif strChoice == 2:
+        print("What day would you like to amend?")
+        x = input("")
+        print("Please enter your amendment: ")
+        change = input("")
+        if x == 'Monday':
+            with open('Monday_Timetable.txt', 'a') as f:
+                f.write('\n' + "***" + change + "***")
+                f.close()
+                main_option()
+        elif x == 'Tuesday':
+            with open('Tuesday_Timetable.txt', 'a') as f:
+                f.write('\n' + "***" + change + "***")
+                f.close()
+                main_option()
+        elif x == 'Wednesday':
+            with open('Wednesday_Timetable.txt', 'a') as f:
+                f.write('\n' + "***" + change + "***")
+                f.close()
+                main_option()
+        elif x == 'Thursday':
+            with open('Thursday_Timetable.txt', 'a') as f:
+                f.write('\n' + "***" + change + "***")
+                f.close()
+                main_option()
+        elif x == 'Friday':
+            with open('Friday_Timetable.txt', 'a') as f:
+                f.write('\n' + "***" + change + "***")
+                f.close()
+                main_option()
+        else:
+            main_option()
+    elif strChoice == 3:
+        from menu import Main_menu
+        Main_menu()
+    else:
+        main_option()
+main_option()
