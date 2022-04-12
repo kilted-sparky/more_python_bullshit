@@ -1,9 +1,7 @@
 # Calculator
 
-from menu import Main_menu
-
 def calculator():
-    global func, first, second
+
     print("Welcome to your very own calculator!")
     print("The functions available are: ")
     print("1. Add")
@@ -27,21 +25,24 @@ def calculator():
     def multiply(x, y):
         total = x*y
         print("Total = ", total)
+
     print("")
-    try:
-        func = input("Which function would you like to use?")
+    while True:
+        func = int(input("Which function would you like to use?"))
+        if func == 5:
+            from menu import Main_menu
+            Main_menu()
         first = (float(input("Please enter your first number: ")))
         second = (float(input("Please enter your second number: ")))
         if func == 1:
-            add(first, second)
+            print(add(first, second))
         elif func == 2:
-            minus(first, second)
+            print(minus(first, second))
         elif func == 3:
-            division(first, second)
+            print(multiply(first, second))
         elif func == 4:
-            multiply(first, second)
-        else:
-            Main_menu()
-    except ValueError:
-        print("Please enter another number.")
+            print(division(first, second))
+    else:
+        print("Invalid entry")
 calculator()
+
