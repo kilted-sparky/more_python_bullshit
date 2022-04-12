@@ -2,18 +2,17 @@
 
 def Main_menu():
         print("=====WELCOME TO THE MAIN MENU=====")
-        choice = input("""
+        choice = int(input("""
         1. Calculator
         2. Spell Checker
         3. Timetable
-        4. Game - 
-        5. Game - 
-        6.
-        7.
-        6. Help
-        7. Quit
-        
-        What would you like to choose?""")
+        4. Game - Hangman
+        5. Game - Higher Lower
+        6. Diary/Notes
+        7. House point checker
+        8. Help
+                
+        What would you like to choose? """))
 
 
         if choice == 1:
@@ -25,6 +24,23 @@ def Main_menu():
         elif choice == 3:
             from timetable import main_option
             main_option()
-            exit()
+        elif choice == 4:
+            from Hangman import Hangman
+            Hangman()
+        elif choice == 5:
+            from higher_lower_game import higher_lower
+            higher_lower()
+        elif choice == 6:
+            from Diary import diary
+            diary()
+        elif choice == 7:
+            from House_points import house_points
+            house_points()
+        elif choice == 8:
+            from help_function import help_func
+            help_func()
+        else:
+            print("Exiting, have a fantastic day!!")
+        exit()
 Main_menu()
 
